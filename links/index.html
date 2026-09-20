@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neurova</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+         font-family: system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+         background:#f6f3ee; color:#1f2333; }
+  @media (prefers-color-scheme: dark) { body { background:#14151a; color:#eceaf3; } }
+  .card { width:min(92vw,380px); text-align:center; padding:32px 24px; }
+  h1 { margin:0 0 8px; font-size:28px; }
+  p  { margin:0 0 24px; opacity:.75; line-height:1.7; }
+  a.btn { display:block; padding:14px 18px; border-radius:16px; text-decoration:none;
+          font-weight:600; margin-top:12px; }
+  a.primary { background:#4a4fd6; color:#fff; }
+  a.secondary { border:1.5px solid currentColor; color:inherit; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Neurova</h1>
+  <p>هذا الرابط يفتح السؤال داخل التطبيق. إذا لم يُفتح تلقائياً اضغط الزر أدناه.</p>
+  <a id="open" class="btn primary" href="#">فتح في التطبيق</a>
+  <a class="btn secondary" href="https://t.me/NeurovaMCQ">تحميل التطبيق من قناة تيليجرام</a>
+</div>
+<script>
+  // يبني رابط Intent يفتح التطبيق على أندرويد مع الحفاظ على معاملات السؤال،
+  // وإذا لم يكن التطبيق مثبتاً يحوّل المستخدم لقناة التحميل.
+  var q = location.search || "";
+  var fallback = encodeURIComponent("https://t.me/NeurovaMCQ");
+  document.getElementById("open").href =
+    "intent://" + location.host + "/links/" + q +
+    "#Intent;scheme=https;package=com.qplus.app;S.browser_fallback_url=" + fallback + ";end";
+</script>
+</body>
+</html>
