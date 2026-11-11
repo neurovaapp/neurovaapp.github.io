@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.qplus.app",
+    "sha256_cert_fingerprints": [
+      "5C:2F:0B:66:8F:BD:01:8D:2F:12:7B:81:8A:5C:5C:83:17:FF:01:19:40:D3:FE:20:7E:28:74:6A:9E:00:33:D1"
+    ]
+  }
+}]
